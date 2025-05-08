@@ -1,5 +1,8 @@
-class List
+void addNode()
 {
-    Node *START;
+    int nim;
+    cout << "\nMasukkan Nomor Mahasiswa :";
+    cin >> nim;
 
-public:
+    Node *nodeBaru = new Node;
+    nodeBaru->noMhs = nim;
