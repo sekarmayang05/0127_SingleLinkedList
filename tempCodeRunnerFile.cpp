@@ -1,12 +1,14 @@
-bool Search (int nim, Node ** previous, Node **current)
+bool delNode (int nim)
 {
-    *previous = START;
-    *current = START;
+    Node *current, *previous;
+    if (!Search(nim, &previous, &current))
+        return false;
 
-    while ((*current != NULL) && (nim != (*current)->noMhs))
-    {
-        *previous = *current;
-        *current = (*current)->next;
-    }
-    return (*current != NULL);
-       
+    if (current == START)
+        START = START->next;
+    else
+        previous->next = current->next;
+
+    delete current;
+    return true;
+}
